@@ -33,9 +33,11 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 <h2> Part 1 Inspecting Traffic Between Azure Virtual Machines</h2>
 
 <p>
+(Image 1) 
   
 ![image](https://github.com/user-attachments/assets/e3ae8b61-29a9-4ef7-9df3-f26acf4661cf)
 
+(Image 2)
 ![image](https://github.com/user-attachments/assets/8363fe5d-c006-4d78-8543-3718094d6d5c)
 
 
@@ -46,9 +48,10 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 <br />
 
 <p>
+ (Image 1) 
   
 ![image](https://github.com/user-attachments/assets/d3260ebb-ac08-470f-b390-3cdb34334da3)
-
+(Image 2) 
 ![image](https://github.com/user-attachments/assets/33a93015-29ad-4c5d-8dbe-127a5b1029b9)
 
 
@@ -59,9 +62,10 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 <br />
 
 <p>
+  (Image 1) 
   
 ![image](https://github.com/user-attachments/assets/4c816892-1ade-43e5-ad18-d935d9df5369)
-
+(Image 2) 
 ![image](https://github.com/user-attachments/assets/37d8aa9a-ff16-4123-a524-0b4b64048bb6)
 
 </p>
@@ -73,8 +77,11 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 <h2> Part 2 Configuring a Firewall [Network Security Group]</h2>
 
 <p>
-  
 
+(Image 1) 
+  ![image](https://github.com/user-attachments/assets/a887ab50-e0be-4957-a0fd-a30e6679b906)
+(Image 2) 
+![image](https://github.com/user-attachments/assets/0ffadf59-4dc3-497c-a815-78b3a5d6417a)
 
 
 </p>
@@ -84,22 +91,46 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 <br />
 
 <p>
-  
+  #2 Examine All Traffic to and from Azure Virtual Machines 
 
 
-</p>
-<p>
-#2 Examine All Traffic to and from Azure Virtual Machines ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
-<br />
+![image](https://github.com/user-attachments/assets/2f2bc158-bb98-42fb-8126-d9326c6891bb)
+ 
+(Observing IMCP Traffic)
 
-<p>
-  
+ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
 
-  
-</p>
-<p>
-#3 Examine traffic to and from Azure Virtual Machines with Wireshark Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
-<br />
+
+(Observing SSH Traffic)
+Log back into the windows-vm
+Back in Wireshark, start a packet capture up
+Filter for SSH traffic only
+From your Windows 10 VM, “SSH into” your Ubuntu Virtual Machine (via its private IP address)
+Open PowerShell, and type: ssh labuser@<private IP address>
+Type commands (username, pwd, etc) into the linux SSH connection and observe SSH traffic spam in WireShark
+Exit the SSH connection by typing ‘exit’ and pressing [Enter]
+
+![image](https://github.com/user-attachments/assets/2f2bc158-bb98-42fb-8126-d9326c6891bb)
+
+(Observing DHCP Traffic)
+Back in Wireshark, filter for DHCP traffic only
+From your Windows 10 VM, attempt to issue your VM a new IP address from the command line
+Open PowerShell as admin and run: ipconfig /renew
+Observe the DHCP traffic appearing in WireShark
+
+![image](https://github.com/user-attachments/assets/2f2bc158-bb98-42fb-8126-d9326c6891bb)
+
+(Observing DNS Traffic)
+Back in Wireshark, filter for DNS traffic only
+From your Windows 10 VM within a command line, use nslookup to see what google.com and disney.com’s IP addresses are
+Observe the DNS traffic being show in WireShark
+
+![image](https://github.com/user-attachments/assets/2f2bc158-bb98-42fb-8126-d9326c6891bb)
+
+
+(Observing RDP Traffic)
+Back in Wireshark, filter for RDP traffic only (tcp.port == 3389)
+Observe the immediate non-stop spam of traffic? Why do you think it’s non-stop spamming vs only showing traffic when you do an activity?
+Answer: because the RDP (protocol) is constantly showing you a live stream from one computer to another, therefor traffic is always being transmitted
+
 
