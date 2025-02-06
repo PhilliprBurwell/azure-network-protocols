@@ -33,11 +33,11 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 <h2> Part 1 Inspecting Traffic Between Azure Virtual Machines</h2>
 
 <p>
-(Image 1) 
+(Image #1) 
   
 ![image](https://github.com/user-attachments/assets/e3ae8b61-29a9-4ef7-9df3-f26acf4661cf)
 
-(Image 2)
+(Image #2)
 ![image](https://github.com/user-attachments/assets/8363fe5d-c006-4d78-8543-3718094d6d5c)
 
 
@@ -51,10 +51,11 @@ While creating the VM, allow it to create a new Virtual Network (Vnet) and Subne
 <br />
 
 <p>
- (Image 1) 
+(Image #1) 
   
 ![image](https://github.com/user-attachments/assets/d3260ebb-ac08-470f-b390-3cdb34334da3)
-(Image 2) 
+(Image #2) 
+
 ![image](https://github.com/user-attachments/assets/33a93015-29ad-4c5d-8dbe-127a5b1029b9)
 
 
@@ -69,10 +70,11 @@ Ensure both VMs are in the same Virtual Network / Subnet
 <br />
 
 <p>
-  (Image 1) 
+(Image #1) 
   
 ![image](https://github.com/user-attachments/assets/4c816892-1ade-43e5-ad18-d935d9df5369)
-(Image 2) 
+(Image #2) 
+
 ![image](https://github.com/user-attachments/assets/37d8aa9a-ff16-4123-a524-0b4b64048bb6)
 
 </p>
@@ -85,9 +87,9 @@ Ensure both VMs are in the same Virtual Network / Subnet
 
 <p>
 
-(Image 1) 
+(Image #1) 
   ![image](https://github.com/user-attachments/assets/a887ab50-e0be-4957-a0fd-a30e6679b906)
-(Image 2) 
+(Image #2) 
 ![image](https://github.com/user-attachments/assets/0ffadf59-4dc3-497c-a815-78b3a5d6417a)
 
 
