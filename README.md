@@ -99,18 +99,18 @@ Open the Network Security Group your Ubuntu VM is using and disable incoming (in
 <br />
 
 <p>
-   <h2>#2 Examination of All Traffic to and from Azure Virtual Machines</h2> 
+   <h2> Examination of All Traffic to and from Azure Virtual Machines</h2> 
 
 
 ![image](https://github.com/user-attachments/assets/2f2bc158-bb98-42fb-8126-d9326c6891bb)
  
-(Observing IMCP Traffic)
+#2 Observing IMCP Traffic
 
 ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
 
 ![image](https://github.com/user-attachments/assets/aa0c0475-079a-431d-9fa9-59403c766e76)
 
-(Observing SSH Traffic)
+#3 Observing SSH Traffic
 Log back into the windows-vm
 Back in Wireshark, start a packet capture up
 Filter for SSH traffic only
@@ -122,7 +122,7 @@ Exit the SSH connection by typing ‘exit’ and pressing [Enter]
 ![image](https://github.com/user-attachments/assets/d9a242d4-a3c5-4e28-ba44-e5a4d20bf0b3)
 
 
-(Observing DHCP Traffic)
+#4 Observing DHCP Traffic
 Back in Wireshark, filter for DHCP traffic only
 From your Windows 10 VM, attempt to issue your VM a new IP address from the command line
 Open PowerShell as admin and run: ipconfig /renew
@@ -131,7 +131,7 @@ Observe the DHCP traffic appearing in WireShark
 ![image](https://github.com/user-attachments/assets/c4c292cd-bb12-4ded-b270-33264f28f94f)
 
 
-(Observing DNS Traffic)
+#5 Observing DNS Traffic
 Back in Wireshark, filter for DNS traffic only
 From your Windows 10 VM within a command line, use nslookup to see what google.com and disney.com’s IP addresses are
 Observe the DNS traffic being show in WireShark
@@ -140,7 +140,7 @@ Observe the DNS traffic being show in WireShark
 ![image](https://github.com/user-attachments/assets/1b4d767e-5f83-472b-addc-80a1132baad5)
 
 
-(Observing RDP Traffic)
+#6 Observing RDP Traffic
 Back in Wireshark, filter for RDP traffic only (tcp.port == 3389)
 Observe the immediate non-stop spam of traffic? Why do you think it’s non-stop spamming vs only showing traffic when you do an activity?
 Answer: because the RDP (protocol) is constantly showing you a live stream from one computer to another, therefor traffic is always being transmitted
