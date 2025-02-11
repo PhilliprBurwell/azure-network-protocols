@@ -59,7 +59,7 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 
 </p>
 <p>
-#2 Create 2 VM's - Create a Windows 10 Virtual Machine (VM) and a Create a Linux (Ubuntu) VM. Go to image and click "Windows 10". And for the Linux machine click "2022 Ubuntu" While creating the VM, select the previously created Resource Group and Virtual Network—the Virtual Network it MUST BE THE SAME. For both vm's make the Username labuser and the password Cyberlab123!. Ensure both VMs are in the same Virtual Network / Subnet
+#2 Create 2 VM's - Create a Windows 10 Virtual Machine (VM) and a Create a Linux (Ubuntu) VM. Go to image and click "Windows 10". And for the Linux machine click "2022 Ubuntu" While creating the VM, select the previously created Resource Group and Virtual Network—the Virtual Network (MUST BE THE SAME). For both vm's make the username labuser and the password Cyberlab123!. Ensure both VMs are in the same Virtual Network / Subnet.
 
 </p>
 <br />
@@ -74,7 +74,7 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 
 </p>
 <p>
-#3 Examine traffic to and from Azure Virtual Machines - If using Mac like me, install Microsoft Remote Desktop and use Remote Desktop to connect to your Windows 10 Virtual Machine. Copy and paste the public IP address into Remote desktop and mnake a host name. Name it Windows 10. Once in your Windows 10 Virtual Machine, Install WiresharkOpen Wireshark and start packet capture Within Wireshark, filter for ICMP traffic only. Wihtin Azure retrieve the private IP address of the Ubuntu VM (linux-vm) and attempt to ping it from within the Windows 10 VM. Type ping ( Private Ip address). Observe ping requests and replies within WireShark From The Windows 10 VM, open command line or PowerShell and attempt to ping a public website (such as www.google.com) and observe the traffic in WireShark.
+#3 Examine traffic to and from Azure Virtual Machines - If using Mac like me, install Microsoft Remote Desktop and use Remote Desktop to connect to your Windows 10 Virtual Machine. Copy and paste the public IP address into Remote desktop and make a host name. Name it Windows 10. Once in your Windows 10 Virtual Machine, Install Wireshark and start packet capture Within Wireshark, filter for ICMP traffic only. Within Azure retrieve the private IP address of the Ubuntu VM (linux-vm) and attempt to ping it from within the Windows 10 VM. Type ping ( Private Ip address). Observe ping requests and replies within WireShark From The Windows 10 VM, open command line or PowerShell and attempt to ping a public website (such as www.google.com) and observe the traffic in WireShark.
 </p>
 <br />
 
@@ -91,18 +91,18 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 ![image](https://github.com/user-attachments/assets/2f2bc158-bb98-42fb-8126-d9326c6891bb)
 </p>
 <p>
-#1 Disable imcoming IMCP Traffic - Initiate a perpetual/non-stop ping from your Windows 10 VM to your Ubuntu VM Open the Network Security Group your Ubuntu VM is using and disable incoming (inbound) ICMP traffic. Back in the Windows 10 VM, observe the ICMP traffic in WireShark and the command line Ping activity. It should have a spam of "Request Timed out" instaed of "Reply" since we can no longer reach the Linux Machine. After that you can go back to Azure and re-enable the ICMP traffic for the Network Security Group your Ubuntu VM is. Back in the Windows 10 VM, observe the ICMP traffic in WireShark and the command line Ping activity and it should start working again.
+#1 Disable imcoming IMCP Traffic - Initiate a perpetual/non-stop ping from your Windows 10 VM to your Ubuntu VM. Open the Network Security Group to your Ubuntu VM and disable incoming (inbound) ICMP traffic. Back in the Windows 10 VM, observe the ICMP traffic in WireShark and the command line Ping activity. It should have a spam of "Request Timed out" instead of "Reply" since we can no longer reach the Linux Machine. After that you can go back to Azure and re-enable the ICMP traffic for the Network Security Group your Ubuntu VM is. Back in the Windows 10 VM, observe the ICMP traffic in WireShark and the command line Ping activity and it should start working again.
 
 <br />
 
 ![image](https://github.com/user-attachments/assets/aa0c0475-079a-431d-9fa9-59403c766e76)
 
-#2 Observing SSH Traffic - Log back into the windows-vm. Back in Wireshark, start a packet capture up. Filter for SSH traffic only. From your Windows 10 VM, “SSH into” your Ubuntu Virtual Machine (via its private IP address) Open PowerShell, and type: ssh labuser@<private IP address>. Type the username and password of the Linux vm that was created earlier into the SSH connection and observe SSH traffic spam in WireShark and Exit the SSH connection by typing ‘exit’ and pressing [Enter]
+#2 Observing SSH Traffic - Log back into the windows-vm. Back in Wireshark, start a packet capture up. Filter for SSH traffic only. From your Windows 10 VM, “SSH into” your Ubuntu Virtual Machine (via its private IP address) Open PowerShell, and type: ssh labuser@<private IP address>. Type the username and password of the Linux vm that was created earlier into the SSH connection and observe SSH traffic spam in WireShark and Exit the SSH connection by typing ‘exit’ and pressing enter.
 
 ![image](https://github.com/user-attachments/assets/d9a242d4-a3c5-4e28-ba44-e5a4d20bf0b3)
 
 
-#3 Observing DHCP Traffic - Back in Wireshark, filter for DHCP traffic only. From your Windows 10 VM, attempt to issue your VM a new IP address from the command line. Open  note pad within the vm and type ipconfig / renew and / release. This act as if my Windows vm is asking for a new IP address. We save the notepad within the prograd data file. Open PowerShell as admin and type program data so we can be in program data and type (programdata ./dhcp.bat). The name is dhcp.bat. After that run: ipconfig /renew. Observe the DHCP traffic appearing in WireShark. You can see the dchp server acknowledged the device, the device requested, the server offered the ip address and then the device discovered the new ip address.
+#3 Observing DHCP Traffic - Back in Wireshark, filter for DHCP traffic only. From your Windows 10 VM, attempt to issue your VM a new IP address from the command line. Open  note pad within the vm and type ipconfig / renew and / release. This act as if my Windows vm is asking for a new IP address. We save the notepad within the program data file. Open PowerShell as admin and type program data so we can be in program data and type (programdata ./dhcp.bat). The name is dhcp.bat. After that run: ipconfig /renew. Observe the DHCP traffic appearing in WireShark. You can see the dchp server acknowledged the device, the device sent a requeste, the server offered the ip address and then the device discovered the new ip address.
 
 ![image](https://github.com/user-attachments/assets/c4c292cd-bb12-4ded-b270-33264f28f94f)
 
