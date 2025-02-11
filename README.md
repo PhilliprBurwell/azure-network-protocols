@@ -25,10 +25,10 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 
 <h2>High-Level Steps</h2>
 
-- Step 1
-- Step 2
-- Step 3
-- Step 4
+- Create Resourse Group & Virtual Network
+- Create 2 VM's
+- Examine traffic to and from Azure Virtual Machines
+- Inspect IMCP Traffic, SSH Traffic, DHCP Traffic, DNS Traffic & RDP Traffic
 
 <h2> Part 1 Inspecting Traffic Between Azure Virtual Machines</h2>
 
